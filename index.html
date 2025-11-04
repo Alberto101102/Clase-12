@@ -268,7 +268,7 @@
             <div class="mapas" id="mapaCL"></div>
 
             <h2>Chile comparando con otros países</h2>
-            <p>Registros sobre 3.9 M del último mes, comparado con Japón y Rusia</p>
+            <p>Registros sobre 3.9 M del último mes, comparado con Japón y México</p>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50" id="viz"></svg>
 
             <h2>Historia de terremotos en Chile</h2>
@@ -334,13 +334,11 @@
         <script>
             // Declarar variables globales
             const chilenos = document.getElementById("cl");
-            const mexicanos = document.getElementById("cl");
-            const japoneses = document.getElementById("cl");
+         
             
-            
-            let conteoChilenos = 0;
-            let conteoMexicanos = 0;
-            let conteoJaponeses = 0;
+            var conteoChilenos = 0;
+            var conteoMexicanos = 0;
+            var conteoJaponeses = 0;
 
             // Funciones auxiliares
             function magnitud(x) {
@@ -376,7 +374,7 @@
                     console.log(temblores);
 
                     // Crear el mapa
-                    const mapaChile = L.map("mapaCL").setView([-33.4422116, -70.6406473], 3);
+                    const mapaChile = L.map("mapaCL").setView([-33.4422116, -70.6406473], 3.5);
                     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
                         maxZoom: 19,
                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -384,6 +382,7 @@
 
                   
                     temblores.forEach((t) => {
+                        
                         // Si dice Chile en el place
                         if (t.properties.place.includes("Chile") && t.properties.mag > 3.9) {
                             chilenos.innerHTML += `<tr>
@@ -400,31 +399,19 @@
                         }
                         
                           //si es que dice Mexico en el place
-                        if (t.properties.place.includes("Mexico")) {
-                            mexicanos.innerHTML += `<tr>
-                            <td><a href="${t.properties.url}" target="_blank">${t.properties.place}</a></td>
-                            <td>${tiempo(t.properties.time)}</td>
-                            <td>${magnitud(t.properties.mag)}</td>
-                            <td>${tsunami(t.properties.tsunami)}</td>
-                        </tr>`;
-                            conteoMexicanos++;L.marker([t.geometry.coordinates[1], t.geometry.coordinates[0]]).addTo(mapaMexico).bindPopup(t.properties.place);
+                        if (t.properties.place.includes("Mexico") && t.properties.mag > 3.9) {
+                        conteoMexicanos++;
                         }
                         
                         //si es que dice Japan en el place
                         if (t.properties.place.includes("Japan") && t.properties.mag > 3.9) {
-                            japoneses.innerHTML += `<tr>
-                            <td><a href="${t.properties.url}" target="_blank">${t.properties.place}</a></td>
-                            <td>${tiempo(t.properties.time)}</td>
-                            <td>${magnitud(t.properties.mag)}</td>
-                            <td>${tsunami(t.properties.tsunami)}</td>
-                        </tr>`;
-                            conteoJaponeses++;L.marker([t.geometry.coordinates[1], t.geometry.coordinates[0]]).addTo(mapaJapon).bindPopup(t.properties.place);
+                         conteoJaponeses++;
                         }
                         
                         
                     });
                     
-                 const divido = conteoChilenos/3
+                 const divido = conteoChilenos/10
                     document.getElementById("viz").innerHTML = `<g><circle cx="10" cy="25" r="${
                         conteoChilenos / divido
                     }" fill="#2A86BF"></circle><text x="10" y="25" font-size="1.5" dominant-baseline="middle" text-anchor="middle" fill="white">${conteoChilenos}</text><text x="10" y="45" font-size="2" dominant-baseline="middle" text-anchor="middle">Chile</text><g>`;
