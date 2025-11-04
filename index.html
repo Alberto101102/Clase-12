@@ -23,6 +23,10 @@
                 line-height: 1.2;
                 background: rgba(255, 255, 255, 1);
                 color: #222;
+                background-image: linear-gradient(rgba(255, 255, 255, 0.5) 0, rgba(255, 255, 255, 1) 30vh), url("TerremotoBanner.webp");
+                background-repeat: no-repeat;
+                background-size: 100% auto;
+                background-position: 0px -2vw;
             }
             div.container {
                 width: min(800px, 90%);
@@ -127,7 +131,7 @@
                 height: 1.5rem;
                 margin-bottom: -0.25rem;
                 margin-left: -0.25rem;
-                fill: #2b678c;
+                fill: #2b2abf;
             }
 
             div.mapas {
@@ -152,9 +156,9 @@
             }
 
             p span {
-                border-radius: 6px 6px;
-                padding: 0 0.5rem 0 1.5rem;
-                background-color: #a5d8f8;
+                border-radius: 6px 16px;
+                padding: 0 0.7rem 0 1.7rem;
+                background-color: rgba(43, 42, 191, 0.34);
                 background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M5.47,58.58H17A44.19,44.19,0,0,0,5.47,82.93Zm17.84,0h7.62l-3.56-35.8,13.4-5.66V30.65l12.06,4.8-4.06,22A31.82,31.82,0,0,0,18.39,89.08H9.53A40.25,40.25,0,0,1,23.31,58.58ZM50,61.9A27.18,27.18,0,0,1,77.18,89.08h-9a18.27,18.27,0,1,0-36.53,0H22.82A27.18,27.18,0,0,1,50,61.9Zm0,13.28a13.86,13.86,0,0,1,13.78,13.9H54.92a4.92,4.92,0,0,0-9.84,0h-9A14,14,0,0,1,50,75.18Zm8.24-16.6a35.85,35.85,0,0,0-5.29-1L57.5,32.87,45,28V15.28l4.42-1.85L69.56,18.6l3.81,40h3.32a40.25,40.25,0,0,1,13.78,30.5H81.61A31.68,31.68,0,0,0,58.24,58.58Zm24.72,0H94.53V82.93A45.16,45.16,0,0,0,83,58.58Z"></path></svg>');
                 background-position: 0.3rem 0;
                 background-size: 1rem 1rem;
@@ -277,6 +281,11 @@
                 Chile se encuentra ubicado en el Cinturón de Fuego del Pacífico, una de las zonas sísmicas más activas del planeta. Esta posición geográfica ha marcado profundamente la historia del país, con eventos sísmicos que han dejado huellas imborrables en su desarrollo urbano, social y cultural.
             </p>
 
+               <figure>
+                <img src="Chile.webp" />
+                <figcaption>Terremoto de Valdivia, 1960 - Fuente: BBC News Mundo</figcaption>
+            </figure>
+            
             <p>
                 En 1906 terremoto de Valparaíso, de <span>8,2</span> en potencia de Magnitud de Momento, devastó la principal ciudad portuaria del país. Este evento marcó un antes y un después en la arquitectura y planificación urbana chilena. Posteriormente, el terremoto de Vallenar, en 1922 alcanzó <span>8,5</span> en potencia de Magnitud de Momento, afectando severamente la zona norte del país. El terremoto de Talca de 1928, con <span>7,6</span> en potencia de Magnitud de Momento, continuó la serie de eventos sísmicos que caracterizaron la primera mitad del siglo XX.
             </p>
@@ -304,6 +313,8 @@
                 el país.
             </p>
 
+              
+            
             <p>
                 En 1960 un nuevo terremoto, el de mayor magnitud registrado en el mundo, alcanzando los
                 <span>9,5</span>, devastó las provincias del sur de Chile. Este megaterremoto de Valdivia se convirtió en el evento sísmico más poderoso jamás registrado instrumentalmente. El sismo fue acompañado por un tsunami que provocó una sucesión de enormes olas que arrasaron con las ciudades costeras frente a la zona de ruptura produciendo víctimas fatales hasta en
@@ -316,7 +327,8 @@
             </figure>
 
             <p>
-                La historia sísmica de Chile demuestra la importancia de la preparación y prevención ante estos eventos naturales. Cada terremoto ha contribuido al desarrollo de mejores sistemas de alerta temprana, construcciones más resistentes y una cultura de prevención que caracteriza a la sociedad chilena contemporánea.
+                La historia sísmica de Chile demuestra la importancia de la preparación y prevención ante estos eventos naturales. Cada terremoto ha contribuido al desarrollo de mejores sistemas de alerta temprana, construcciones más resistentes y una cultura de prevención que caracteriza a la sociedad chilena contemporánea. 
+            Si quieres conocer más sobre lo que está pasando en otros países da click en los siguientes enlaces: <a href= "https://irenk0.github.io/Clase12/">Indonesia</a>, <a href= "https://macc965.github.io/Clase-12/">Japón</a> o <a href= "">Filipinas</a>, 
             </p>
 
             <div class="fuentes">
@@ -332,7 +344,7 @@
             </footer>
         </div>
         <script>
-            // Declarar variables globales
+           
             const chilenos = document.getElementById("cl");
          
             
@@ -340,7 +352,7 @@
             var conteoMexicanos = 0;
             var conteoJaponeses = 0;
 
-            // Funciones auxiliares
+           
             function magnitud(x) {
                 var numero = x;
                 if (x > 4.9) {
@@ -374,7 +386,7 @@
                     console.log(temblores);
 
                     // Crear el mapa
-                    const mapaChile = L.map("mapaCL").setView([-33.4422116, -70.6406473], 3.5);
+                    const mapaChile = L.map("mapaCL").setView([-33.4422116, -70.6406473], 3);
                     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
                         maxZoom: 19,
                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -414,15 +426,15 @@
                  const divido = conteoChilenos/10
                     document.getElementById("viz").innerHTML = `<g><circle cx="10" cy="25" r="${
                         conteoChilenos / divido
-                    }" fill="#2A86BF"></circle><text x="10" y="25" font-size="1.5" dominant-baseline="middle" text-anchor="middle" fill="white">${conteoChilenos}</text><text x="10" y="45" font-size="2" dominant-baseline="middle" text-anchor="middle">Chile</text><g>`;
+                    }" fill="#2b2abf"></circle><text x="10" y="25" font-size="1.5" dominant-baseline="middle" text-anchor="middle" fill="white">${conteoChilenos}</text><text x="10" y="45" font-size="2" dominant-baseline="middle" text-anchor="middle">Chile</text><g>`;
 
                     document.getElementById("viz").innerHTML += `<g transform="translate(25)"><circle cx="10" cy="25" r="${
                         conteoJaponeses / divido
-                    }" fill="#2A86BF"></circle><text x="10" y="25" font-size="1.5" dominant-baseline="middle" text-anchor="middle" fill="white">${conteoJaponeses}</text><text x="10" y="45" font-size="2" dominant-baseline="middle" text-anchor="middle">Japón</text><g>`;
+                    }" fill="#2b2abf"></circle><text x="10" y="25" font-size="1.5" dominant-baseline="middle" text-anchor="middle" fill="white">${conteoJaponeses}</text><text x="10" y="45" font-size="2" dominant-baseline="middle" text-anchor="middle">Japón</text><g>`;
 
                     document.getElementById("viz").innerHTML += `<g transform="translate(50)"><circle cx="10" cy="25" r="${
                         conteoMexicanos / divido
-                    }" fill="#2A86BF"></circle><text x="10" y="25" font-size="1.5" dominant-baseline="middle" text-anchor="middle" fill="white">${conteoMexicanos}</text><text x="10" y="45" font-size="2" dominant-baseline="middle" text-anchor="middle">México</text><g>`;
+                    }" fill="#2b2abf"></circle><text x="10" y="25" font-size="1.5" dominant-baseline="middle" text-anchor="middle" fill="white">${conteoMexicanos}</text><text x="10" y="45" font-size="2" dominant-baseline="middle" text-anchor="middle">México</text><g>`;
 
                     
                     
